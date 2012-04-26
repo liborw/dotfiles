@@ -19,3 +19,6 @@
 [submodule "home/vim/bundle/snipmate"]
 	path = home/vim/bundle/snipmate
 	url = git@github.com:liborw/snipmate.vim.git
+[submodule "home/vim/bundle/supertab"]
+	path = home/vim/bundle/supertab
+	url = https://github.com/ervandew/supertab.git
