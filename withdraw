@@ -1,0 +1,49 @@
+#!/bin/bash
+
+# withdraw: Remove all deployed symlinks, and restore old files from backup. 
+
+SCRIPTDIR=`dirname "$(cd ${0%/*} && echo $PWD/${0##*/})"`
+SOURCEDIR="$SCRIPTDIR/home"
+TARGETDIR=$HOME
+
+prefix="$SCRIPTDIR/backup.`hostname -s`."
+list=("$SCRIPTDIR/backup.`hostname -s`."*)
+
+if [ ${#list[@]} -eq 1 ]; then
+    BACKUPDIR=$list
+else
+    echo "Select desired backup dir"
+    select backup in ${list[@]}; do
+        if [ ! $backup == "" ]; then
+            BACKUPDIR=$backup
+            break
+        else
+            echo "Wrong selection!"
+        fi
+    done
+fi
+
+
+echo "Restoring backup $BACKUPDIR"
+
+for file in $SOURCEDIR/*; do
+    name=`basename $file`
+    target_path="$TARGETDIR/.$name"
+    backup_path="$BACKUPDIR/$name"
+    
+
+    # Remove file if exist
+    if [ -e $target_path -o -h $target_path ]; then
+        rm $target_path
+    fi
+
+    # Copy from backup if exist
+    if [ -e $backup_path -o -h $backup_path ]; then
+        cp -R $backup_path $target_path
+    fi
+done
+
+read -p "Do you wish to remove backup dir [y/N]? " yn
+if [[ $yn == [Yy]* ]]; then
+    rm -rf $BACKUPDIR;
+fi

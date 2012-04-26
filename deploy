@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# deploy: Shell script to link all dotfiles in the home directory int this folder.
+#         Files already present will be moved to backup directory.
+
+SCRIPTDIR=`dirname "$(cd ${0%/*} && echo $PWD/${0##*/})"`
+SOURCEDIR="$SCRIPTDIR/home"
+TARGETDIR=$HOME
+BACKUPDIR="$SCRIPTDIR/backup.`hostname -s`.XXX"
+BACKUPDIR=`mktemp -d $BACKUPDIR`
+
+for file in $SOURCEDIR/*; do
+    name=`basename $file`
+    target_path="$TARGETDIR/.$name"
+
+    # If already exist move file to backup
+    if [ -e $target_path -o -h $target_path ]; then
+        echo "Moving $target_path to backup dir."
+        mv $target_path "$BACKUPDIR/$name"
+    fi
+
+    # Make link
+    ln -s ${file#$HOME/} $target_path
+done
+
+# Remove backup dir if empty
+if [ ! "$(ls -A $BACKUPDIR)" ]; then
+    echo "Backup dir is empty, removing!"
+    rm -rf $BACKUPDIR
+else
+    read -p "Do you wish keep backup dir [y/N]? " yn
+    if [[ $yn == [Yy]* ]]; then
+        echo "Old files are stored in $BACKUPDIR."
+    else
+        rm -rf $BACKUPDIR
+    fi
+fi
