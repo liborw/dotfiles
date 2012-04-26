@@ -1,0 +1,6 @@
+[submodule "home/vim/pathogen"]
+	path = home/vim/pathogen
+	url = https://github.com/tpope/vim-pathogen.git
+[submodule "home/vim/bundle/solarized"]
+	path = home/vim/bundle/solarized
+	url = git://github.com/altercation/vim-colors-solarized.git

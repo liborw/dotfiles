@@ -1,0 +1,85 @@
+" A simple Vim configuration by Libor Wagner
+"
+" Based on:
+"   Bjorn Wincler's article b4winckler.wordpress.com
+"   Petar Radosevic vim configuration
+
+" Minimal settings
+set nocompatible            " Not realy sure what it does but every one has it
+set background=dark         " Just dark
+syntax on                   " And colors
+filetype off                " I'm using Pathogen for plugin management
+call pathogen#infect()      " ...
+filetype plugin indent on   " ...
+
+" Encoding
+set encoding=utf-8          " Only utf-8
+set fileencoding=utf-8      " ...
+
+" The rest
+set showmatch               " show matching brackets (), {}' []
+set showcmd                 " show command
+set laststatus=2            " occasions to show status line, 2=always.
+set hidden                  " move buffer to background without saving
+set wrap                    " set long-line wrapping
+set whichwrap+=<,>,h,l
+set textwidth=80            " disable automatic text-width
+set history=1000            " more history
+set shortmess=atI           " shorten confirmation messages
+set bs=2                    " fix backspace in FreeBSD
+set scrolloff=3             " keep 3 lines below/above cursor
+set showmode                " shows the mode i'm currently in
+set showcmd                 " shows partial command in the last line
+set ttyfast                 " improved remote connections
+set ruler                   " show the line and column number of the cursor
+set backspace=indent,eol,start
+set number                  " show line numbering
+set undofile                " create undofiles
+set formatoptions=qrn1
+set colorcolumn=80
+let mapleader=','
+
+
+" Gui
+if has("gui_running")
+    colorscheme solarized
+    set anti
+    set go-=T
+else
+    set t_Co=256
+    let g:solarized_termcolors=256
+    colorscheme solarized
+    set mouse=a
+    set ttymouse=xterm
+    set termencoding=utf-8
+endif
+
+" Bash-like filename completion
+set wildmenu
+set wildmode=list:longest
+set wildignore=*.o,*.fasl,*.tmp,.git,*.pyc,*.jpg,*.gif,*.png,*.mo
+
+" Backup settings
+set undodir=~/.vim/tmp/undo//     " undo files
+set backupdir=~/.vim/tmp/backup// " backups
+set directory=~/.vim/tmp/swap//   " swap files
+set backup                        " enable backups
+set noswapfile                    " no swapping
+
+" Whitespace
+set nowrap
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set list
+set lcs=tab:>-,trail:-,nbsp:~
+nmap <leader>l :set list!<CR>
+
+" Search
+set ignorecase              " case-insensitive search
+set smartcase               " upper-case sensitive search
+set hls                     " highlight search
+set is                      " search interactively
+
+" -- Plugins --
+
