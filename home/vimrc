@@ -81,5 +81,8 @@ set smartcase               " upper-case sensitive search
 set hls                     " highlight search
 set is                      " search interactively
 
+" Mappings
+map <leader>= gg=G``
+
 " -- Plugins --
 
