@@ -10,11 +10,11 @@ while :
 do
     wget $URL -O new.html &>/dev/null
     if [ -f old.html ]; then
-        CHANGE=`diff new.html old.html`
+        CHANGE=`diff new.html old.html | diffstat -q`
         if [ -z "$CHANGE" ]; then
             echo "No change detected"
         else
-            echo "Change detected!!"
+            echo "$CHANGE"
             rm -rf new.html old.html
             exit 0
         fi
