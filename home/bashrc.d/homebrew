@@ -1,7 +1,11 @@
 # Homebrew specific configuration
 
+
+hash brew 2>/dev/null && {
+
 # Source homwbrew installed bash completion
 if [ -f /usr/local/etc/bash_completion ]; then
     . /usr/local/etc/bash_completion
 fi
 
+}
