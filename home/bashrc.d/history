@@ -1,0 +1,7 @@
+# Bash history configuration
+
+# Ignore duplicate entries
+export HISTCONTROL=ignoreboth
+
+# Increase size
+export HISTSIZE=1000
