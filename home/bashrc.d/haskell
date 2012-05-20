@@ -1,0 +1,4 @@
+# Haskell related configuration
+
+PATH=$HOME/.cabal/bin:$PATH
+
