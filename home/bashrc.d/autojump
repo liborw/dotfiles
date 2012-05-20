@@ -1,0 +1,11 @@
+# Autojump config
+
+# If installed by homebrew
+hash brew 2>/dev/null && {
+
+# Auto jump
+if [ -f `brew --prefix`/etc/autojump ]; then
+  . `brew --prefix`/etc/autojump
+fi
+
+}
