@@ -1,0 +1,16 @@
+# Git related configuration
+
+# Check if git command exist
+command -v git &>/dev/null && {
+
+    # Alias 'git' to 'g'
+    alias g=git
+
+    # Autocomplete for 'g' as well
+    complete -o default -o nospace -F _git g
+
+    # Display dirty flags in prompt [see prompt]
+    export GIT_PS1_SHOWDIRTYSTATE=true
+    export GIT_PS1_SHOWUNTRACKEDFILES=true
+
+}
