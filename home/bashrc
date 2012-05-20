@@ -16,3 +16,8 @@ run_scripts() {
 if [ -d $HOME/.bashrc.d ]; then
     run_scripts $HOME/.bashrc.d
 fi
+
+# Source local bashrc if there
+if [ -f $HOME/.bashrc.local ]; then
+    source $HOME/.bashrc.local
+fi
