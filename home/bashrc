@@ -21,3 +21,13 @@ fi
 if [ -f $HOME/.bashrc.local ]; then
     source $HOME/.bashrc.local
 fi
+
+# Add ~/bin to path
+if [ -d $HOME/bin ]; then
+    export PATH=$HOME/bin:$PATH
+fi
+
+# Add ~/.bin to path
+if [ -d $HOME/.bin ]; then
+    export PATH=$HOME/.bin:$PATH
+fi
