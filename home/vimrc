@@ -85,4 +85,8 @@ set is                      " search interactively
 map <leader>= gg=G``
 
 " -- Plugins --
+" Haskell mode
+au BufEnter *.hs compile ghc
+let g:haddock_browser = "/usr/bin/open"
+let g:ghc = "/usr/local/bin/ghc"
 

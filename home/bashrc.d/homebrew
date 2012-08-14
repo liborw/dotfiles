@@ -8,4 +8,20 @@ if [ -f /usr/local/etc/bash_completion ]; then
     . /usr/local/etc/bash_completion
 fi
 
+# Include /usr/local/bin in path
+if [ -d /usr/local/bin ]; then
+    export PATH=/usr/local/bin:$PATH
+fi
+
+# Include /usr/local/sbin in path
+if [ -d /usr/local/sbin ]; then
+    export PATH=/usr/local/sbin:$PATH
+fi
+
+# MacVim config
+if [ -d /usr/local/Cellar/macvim/ ]; then
+    alias gvim='mvim'
+    alias vim='/usr/local/Cellar/macvim/7.3-64/MacVim.app/Contents/MacOS/Vim'
+fi
+
 }

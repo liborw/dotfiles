@@ -1,8 +1,2 @@
 # Bash config related to Mac OS X
 
-OSNAME=`uname`
-if [ "$OSNAME" == "Darwin" ]; then
-    # Alias macvim as gvim
-    alias gvim=mvim
-
-fi
