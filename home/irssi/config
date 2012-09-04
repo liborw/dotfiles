@@ -1,4 +1,3 @@
-
 servers = (
   {
     address = "chat.freenode.net";
@@ -20,7 +19,15 @@ chatnets = {
 
 channels = (
   { name = "#haskell"; chatnet = "freenode"; autojoin = "yes"; }
+    autoconnect = "yes";
+    nick = "liborw";
+  }
 );
+
+chatnets = { 
+  freenode = { type = "IRC"; };
+  "irc.oftc.net" = { type = "IRC"; };
+};
 
 aliases = {
   J = "join";
@@ -70,6 +77,8 @@ aliases = {
   ATAG = "WINDOW SERVER";
   UNSET = "set -clear";
   RESET = "set -default";
+  SBAR = "STATUSBAR";
+  INVITELIST = "mode $C +I";
 };
 
 statusbar = {
@@ -77,12 +86,10 @@ statusbar = {
   # when using {templates}, the template is shown only if it's argument isn't
   # empty unless no argument is given. for example {sb} is printed always,
   # but {sb $T} is printed only if $T isn't empty.
-
   items = {
     # start/end text in statusbars
     barstart = "{sbstart}";
     barend = "{sbend}";
-
     topicbarstart = "{topicsbstart}";
     topicbarend = "{topicsbend}";
 
@@ -100,6 +107,20 @@ statusbar = {
     topic_empty = " Irssi v$J - http://www.irssi.org";
 
     # all of these treated specially, they're only displayed when needed
+    # treated "normally", you could change the time/user name to whatever
+    time = "{sb $Z}";
+    user = "{sb $cumode$N{sbmode $usermode}{sbaway $A}}";
+
+    # treated specially .. window is printed with non-empty windows,
+    # window_empty is printed with empty windows
+    window = "{sb $winref:$T{sbmode $M}}";
+    window_empty = "{sb $winref{sbservertag $tag}}";
+    prompt = "{prompt $[.15]T}";
+    prompt_empty = "{prompt $winname}";
+    topic = " $topic";
+    topic_empty = " Irssi v$J - http://irssi.org/help/";
+
+    # all of these treated specially, theyre only displayed when needed
     lag = "{sb Lag: $0-}";
     act = "{sb Act: $0-}";
     more = "-- more --";
