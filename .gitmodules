@@ -37,3 +37,6 @@
 [submodule "home/vim/bundle/surround"]
 	path = home/vim/bundle/surround
 	url = https://github.com/tpope/vim-surround.git
+[submodule "home/vim/bundle/ag"]
+	path = home/vim/bundle/ag
+	url = https://github.com/epmatsw/ag.vim.git
