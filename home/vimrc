@@ -76,10 +76,11 @@ set lcs=tab:>-,trail:-,nbsp:~
 nmap <leader>l :set list!<CR>
 
 " Search
-set ignorecase              " case-insensitive search
-set smartcase               " upper-case sensitive search
-set hls                     " highlight search
-set is                      " search interactively
+set ignorecase                  " case-insensitive search
+set smartcase                   " upper-case sensitive search
+set hls                         " highlight search
+set is                          " search interactively
+:nnoremap <CR> :nohlsearch<cr>
 
 " Mappings
 map <leader>= gg=G``
@@ -101,3 +102,6 @@ au BufEnter *.hs compile ghc
 let g:haddock_browser = "/usr/bin/open"
 let g:ghc = "/usr/local/bin/ghc"
 
+" Command-T
+let g:CommandTMaxHeight=10
+let g:CommandTMinHeight=4
