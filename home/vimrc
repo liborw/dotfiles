@@ -84,6 +84,17 @@ set is                      " search interactively
 " Mappings
 map <leader>= gg=G``
 
+" switch between buffers with ',,'
+nnoremap <leader><leader> <c-^>
+
+" double percentage sign in command mode is expanded
+" to directory of current file - http://vimcasts.org/e/14
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+
+" ',f' and ',F' for full project search and for directory search
+map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
+map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
+
 " -- Plugins --
 " Haskell mode
 au BufEnter *.hs compile ghc

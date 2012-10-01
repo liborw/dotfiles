@@ -28,3 +28,12 @@
 [submodule "home/vim/bundle/tabular"]
 	path = home/vim/bundle/tabular
 	url = https://github.com/godlygeek/tabular.git
+[submodule "home/vim/bundle/ack"]
+	path = home/vim/bundle/ack
+	url = https://github.com/mileszs/ack.vim.git
+[submodule "home/vim/bundle/commentary"]
+	path = home/vim/bundle/commentary
+	url = https://github.com/tpope/vim-commentary.git
+[submodule "home/vim/bundle/surround"]
+	path = home/vim/bundle/surround
+	url = https://github.com/tpope/vim-surround.git
