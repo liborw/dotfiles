@@ -93,8 +93,11 @@ nnoremap <leader><leader> <c-^>
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
 " ',f' and ',F' for full project search and for directory search
-map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
-map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
+map <leader>f :CtrlP<cr>
+map <leader>F :CtrlP %%<cr>
+map <leader>b :CtrlPbuffer<cr>
+map <leader>a :CtrlPMixed<cr>
+
 
 " -- Plugins --
 " Haskell mode
@@ -102,6 +105,6 @@ au BufEnter *.hs compile ghc
 let g:haddock_browser = "/usr/bin/open"
 let g:ghc = "/usr/local/bin/ghc"
 
-" Command-T
-let g:CommandTMaxHeight=10
-let g:CommandTMinHeight=4
+" CtrlP
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
