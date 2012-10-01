@@ -95,7 +95,7 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 " ',f' and ',F' for full project search and for directory search
 map <leader>f :CtrlP<cr>
 map <leader>F :CtrlP %%<cr>
-map <leader>b :CtrlPbuffer<cr>
+map <leader>b :CtrlPBuffer<cr>
 map <leader>a :CtrlPMixed<cr>
 
 
