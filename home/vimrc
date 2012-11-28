@@ -92,12 +92,14 @@ nnoremap <leader><leader> <c-^>
 " to directory of current file - http://vimcasts.org/e/14
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
-" ',f' and ',F' for full project search and for directory search
+" ',f' and ',F' for full project search and for directory search (CtrlP)
 map <leader>f :CtrlP<cr>
 map <leader>F :CtrlP %%<cr>
 map <leader>b :CtrlPBuffer<cr>
 map <leader>a :CtrlPMixed<cr>
 
+" ',t' open command-t
+map <leader>t :CommandT<cr>
 
 " -- Plugins --
 " Haskell mode
@@ -108,3 +110,8 @@ let g:ghc = "/usr/local/bin/ghc"
 " CtrlP
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_extensions = ['tag']
+
+" CommandT
+let g:CommandTCancelMap='<Esc>'
+let g:CommandTMaxHeight=20
