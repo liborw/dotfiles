@@ -112,6 +112,13 @@ let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_extensions = ['tag']
 
+" UltiSnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsSnippetDirectories=["UltiSnips","snippets"]
+let g:UltiSnipsSnippetsDir='~/.vim/snippets'
+
 " CommandT
 let g:CommandTCancelMap='<Esc>'
 let g:CommandTMaxHeight=20
