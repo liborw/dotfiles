@@ -4,12 +4,8 @@
 hash brew 2>/dev/null && {
 
 # Auto jump
-if [ -f `brew --prefix`/etc/autojump ]; then
-  . `brew --prefix`/etc/autojump
-fi
-
-if [ -f `brew --prefix`/etc/profile.d/z.sh ]; then
-  . `brew --prefix`/etc/profile.d/z.sh
+if [ -f `brew --prefix`/etc/autojump.bash ]; then
+  . `brew --prefix`/etc/autojump.bash
 fi
 
 }
