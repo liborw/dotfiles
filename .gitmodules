@@ -43,3 +43,6 @@
 [submodule "home/vim/bundle/xml"]
 	path = home/vim/bundle/xml
 	url = https://github.com/othree/xml.vim.git
+[submodule "home/vim/bundle/ultisnips"]
+	path = home/vim/bundle/ultisnips
+	url = https://github.com/SirVer/ultisnips.git
