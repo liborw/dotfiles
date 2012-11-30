@@ -1,0 +1,13 @@
+extends markdown
+
+snippet sec "Section title." !
+${1:title}
+`!p snip.rv = '=' * len(t[1])`
+$0
+endsnippet
+
+snippet ssec "Subsection title." !
+${1:title}
+`!p snip.rv = '-' * len(t[1])`
+$0
+endsnippet
