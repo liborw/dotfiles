@@ -85,6 +85,8 @@ set is                          " search interactively
 " Mappings
 map <leader>= gg=G``
 
+map <leader>p :set paste!<cr>
+
 " switch between buffers with ',,'
 nnoremap <leader><leader> <c-^>
 

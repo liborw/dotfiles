@@ -46,3 +46,6 @@
 [submodule "home/vim/bundle/ultisnips"]
 	path = home/vim/bundle/ultisnips
 	url = https://github.com/SirVer/ultisnips.git
+[submodule "home/vim/bundle/pythoncomplete"]
+	path = home/vim/bundle/pythoncomplete
+	url = https://github.com/vim-scripts/pythoncomplete.git
