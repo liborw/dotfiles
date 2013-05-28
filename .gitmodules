@@ -52,3 +52,18 @@
 [submodule "home/vim/bundle/taglist"]
 	path = home/vim/bundle/taglist
 	url = https://github.com/vim-scripts/taglist.vim
+[submodule "home/vim/bundle/jedi"]
+	path = home/vim/bundle/jedi
+	url = https://github.com/davidhalter/jedi-vim.git
+[submodule "home/vim/bundle/syntastic"]
+	path = home/vim/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
+[submodule "home/vim/bundle/neocomplcache"]
+	path = home/vim/bundle/neocomplcache
+	url = https://github.com/Shougo/neocomplcache.vim.git
+[submodule "home/vim/bundle/vimshell"]
+	path = home/vim/bundle/vimshell
+	url = https://github.com/Shougo/vimshell.vim.git
+[submodule "home/vim/bundle/vimproc"]
+	path = home/vim/bundle/vimproc
+	url = https://github.com/Shougo/vimproc.vim.git
