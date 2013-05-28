@@ -4,12 +4,34 @@
 "   Bjorn Wincler's article b4winckler.wordpress.com
 "   Petar Radosevic vim configuration
 
-" Minimal settings
 set nocompatible            " Not realy sure what it does but every one has it
+
+" NeoBundle
+if has('vim_starting')
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+call neobundle#rc(expand('~/.vim/bundle/'))
+
+" Let NeoBundle manage NeoBundle
+NeoBundleFetch 'Shougo/neobundle.vim'
+NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'Lokaltog/vim-powerline'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'ervandew/supertab'
+NeoBundle 'lukerandall/haskellmode-vim'
+NeoBundle 'eagletmt/ghcmod-vim'
+NeoBundle 'ujihisa/neco-ghc'
+NeoBundle 'godlygeek/tabular'
+
+" Minimal settings
 set background=dark         " Just dark
 syntax on                   " And colors
 filetype off                " I'm using Pathogen for plugin management
-call pathogen#infect()      " ...
 filetype plugin indent on   " ...
 
 " Encoding
@@ -94,16 +116,12 @@ nnoremap <leader><leader> <c-^>
 " to directory of current file - http://vimcasts.org/e/14
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
+" -- Plugins --
 " ',f' and ',F' for full project search and for directory search (CtrlP)
 map <leader>f :CtrlP<cr>
 map <leader>F :CtrlP %%<cr>
 map <leader>b :CtrlPBuffer<cr>
 map <leader>a :CtrlPMixed<cr>
-
-" ',t' open command-t
-map <leader>t :CommandT<cr>
-
-" -- Plugins --
 " Haskell mode
 au BufEnter *.hs compile ghc
 let g:haddock_browser = "/usr/bin/open"
@@ -135,4 +153,4 @@ let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '!'
 let g:syntastic_python_flake8_args = '--ignore="E221,E231,E501,E401,E251" --max-line-length=160'
-
+NeoBundleCheck
