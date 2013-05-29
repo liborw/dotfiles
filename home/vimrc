@@ -14,18 +14,62 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 
 " Let NeoBundle manage NeoBundle
 NeoBundle 'Shougo/vimproc'
+
+" Neocomplcache
 NeoBundle 'Shougo/neocomplcache'
+let g:acp_enableAtStartup = 0
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_smart_case = 1
+
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'plasticboy/vim-markdown'
+let g:vim_markdown_folding_disabled=1
+
+" CtrlP
+NeoBundle 'kien/ctrlp.vim'
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_extensions = ['tag']
+
+" ',f' and ',F' for full project search and for directory search (CtrlP)
+map <leader>f :CtrlP<cr>
+map <leader>F :CtrlP %%<cr>
+map <leader>b :CtrlPBuffer<cr>
+map <leader>a :CtrlPMixed<cr>
+
+" Powerline
 NeoBundle 'Lokaltog/vim-powerline'
+
+
+" Syntastic
 NeoBundle 'scrooloose/syntastic'
+let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '!'
+let g:syntastic_python_flake8_args = '--ignore="E221,E231,E501,E401,E251" --max-line-length=160'
+
+
+NeoBundle 'godlygeek/tabular'
 NeoBundle 'ervandew/supertab'
+
+" Haskell
 NeoBundle 'lukerandall/haskellmode-vim'
 NeoBundle 'eagletmt/ghcmod-vim'
 NeoBundle 'ujihisa/neco-ghc'
-NeoBundle 'godlygeek/tabular'
+
+au BufEnter *.hs compile ghc
+let g:haddock_browser = "/usr/bin/open"
+let g:ghc = "/usr/local/bin/ghc"
+
+" UltiSnips
+" NeoBundle 'SirVer/ultisnips'
+" let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsJumpForwardTrigger="<tab>"
+" let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+" let g:UltiSnipsSnippetDirectories=["UltiSnips","snippets"]
+" let g:UltiSnipsSnippetsDir='~/.vim/snippets'
 
 " Minimal settings
 set background=dark         " Just dark
@@ -116,40 +160,8 @@ nnoremap <leader><leader> <c-^>
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
 " -- Plugins --
-" ',f' and ',F' for full project search and for directory search (CtrlP)
-map <leader>f :CtrlP<cr>
-map <leader>F :CtrlP %%<cr>
-map <leader>b :CtrlPBuffer<cr>
-map <leader>a :CtrlPMixed<cr>
-" Haskell mode
-au BufEnter *.hs compile ghc
-let g:haddock_browser = "/usr/bin/open"
-let g:ghc = "/usr/local/bin/ghc"
 
-" CtrlP
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-let g:ctrlp_extensions = ['tag']
 
-" UltiSnips
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-let g:UltiSnipsSnippetDirectories=["UltiSnips","snippets"]
-let g:UltiSnipsSnippetsDir='~/.vim/snippets'
 
-" CommandT
-let g:CommandTCancelMap='<Esc>'
-let g:CommandTMaxHeight=20
 
-" Neocomplcache
-let g:acp_enableAtStartup = 0
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_smart_case = 1
-
-" Syntastic
-let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_error_symbol = '✗'
-let g:syntastic_warning_symbol = '!'
-let g:syntastic_python_flake8_args = '--ignore="E221,E231,E501,E401,E251" --max-line-length=160'
 NeoBundleCheck
