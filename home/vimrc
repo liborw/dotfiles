@@ -5,6 +5,7 @@
 "   Petar Radosevic vim configuration
 
 set nocompatible            " Not realy sure what it does but every one has it
+let mapleader=','
 
 " NeoBundle
 if has('vim_starting')
@@ -21,7 +22,9 @@ let g:acp_enableAtStartup = 0
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_enable_smart_case = 1
 
-NeoBundle 'Shougo/neosnippet'
+" TaskPaper
+NeoBundle 'davidoc/taskpaper.vim'
+
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'plasticboy/vim-markdown'
@@ -48,7 +51,7 @@ NeoBundle 'scrooloose/syntastic'
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '!'
-let g:syntastic_python_flake8_args = '--ignore="E221,E231,E501,E401,E251" --max-line-length=160'
+let g:syntastic_python_flake8_args = '--ignore="E702,E221,E231,E501,E401,E251,E272" --max-line-length=160'
 
 
 NeoBundle 'godlygeek/tabular'
@@ -63,13 +66,16 @@ au BufEnter *.hs compile ghc
 let g:haddock_browser = "/usr/bin/open"
 let g:ghc = "/usr/local/bin/ghc"
 
+
 " UltiSnips
-" NeoBundle 'SirVer/ultisnips'
-" let g:UltiSnipsExpandTrigger="<tab>"
-" let g:UltiSnipsJumpForwardTrigger="<tab>"
-" let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-" let g:UltiSnipsSnippetDirectories=["UltiSnips","snippets"]
-" let g:UltiSnipsSnippetsDir='~/.vim/snippets'
+NeoBundle 'SirVer/ultisnips'
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsSnippetDirectories=["UltiSnips","snippets"]
+let g:UltiSnipsSnippetsDir='~/.vim/snippets'
+
+autocmd! bufwritepost .vimrc source %
 
 " Minimal settings
 set background=dark         " Just dark
@@ -102,7 +108,6 @@ set number                  " show line numbering
 set undofile                " create undofiles
 set formatoptions=qrn1
 set colorcolumn=80
-let mapleader=','
 
 
 " Gui
@@ -145,11 +150,10 @@ set ignorecase                  " case-insensitive search
 set smartcase                   " upper-case sensitive search
 set hls                         " highlight search
 set is                          " search interactively
-:nnoremap <CR> :nohlsearch<cr>
 
 " Mappings
 map <leader>= gg=G``
-
+nnoremap <CR> :set hlsearch!<CR>
 map <leader>p :set paste!<cr>
 
 " switch between buffers with ',,'
@@ -159,9 +163,8 @@ nnoremap <leader><leader> <c-^>
 " to directory of current file - http://vimcasts.org/e/14
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
-" -- Plugins --
+" Auto commands
 
-
-
+autocmd BufRead *.py set filetype=python
 
 NeoBundleCheck
