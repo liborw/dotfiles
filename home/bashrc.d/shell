@@ -3,7 +3,7 @@
 # common aliases
 alias ..='cd ..'
 alias ...='cd ../..'
-alias ls='ls --color=auto'
+alias ls='ls -G'
 alias l='ls -CF'
 alias la='ls -la'
 alias ll='ls -l'

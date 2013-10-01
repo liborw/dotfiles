@@ -16,11 +16,17 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 " Let NeoBundle manage NeoBundle
 NeoBundle 'Shougo/vimproc'
 
-" Neocomplcache
-NeoBundle 'Shougo/neocomplcache'
+" Neocomplete
+NeoBundle 'Shougo/neocomplete'
 let g:acp_enableAtStartup = 0
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_smart_case = 1
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+
+" For snippet_complete marker.
+if has('conceal')
+  set conceallevel=2 concealcursor=i
+endif
 
 " TaskPaper
 NeoBundle 'davidoc/taskpaper.vim'
@@ -29,6 +35,9 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled=1
+
+" MultipleCursors
+NeoBundle 'terryma/vim-multiple-cursors'
 
 " CtrlP
 NeoBundle 'kien/ctrlp.vim'
@@ -43,8 +52,8 @@ map <leader>b :CtrlPBuffer<cr>
 map <leader>a :CtrlPMixed<cr>
 
 " Powerline
-NeoBundle 'Lokaltog/vim-powerline'
-
+NeoBundle 'bling/vim-airline'
+let g:airline_theme='solarized'
 
 " Syntastic
 NeoBundle 'scrooloose/syntastic'
@@ -68,19 +77,18 @@ let g:ghc = "/usr/local/bin/ghc"
 
 
 " UltiSnips
-NeoBundle 'SirVer/ultisnips'
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-let g:UltiSnipsSnippetDirectories=["UltiSnips","snippets"]
-let g:UltiSnipsSnippetsDir='~/.vim/snippets'
+" NeoBundle 'SirVer/ultisnips'
+" let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsJumpForwardTrigger="<tab>"
+" let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+" let g:UltiSnipsSnippetDirectories=["UltiSnips","snippets"]
+" let g:UltiSnipsSnippetsDir='~/.vim/snippets'
 
 autocmd! bufwritepost .vimrc source %
 
 " Minimal settings
 set background=dark         " Just dark
 syntax on                   " And colors
-filetype off                " I'm using Pathogen for plugin management
 filetype plugin indent on   " ...
 
 " Encoding
@@ -108,7 +116,8 @@ set number                  " show line numbering
 set undofile                " create undofiles
 set formatoptions=qrn1
 set colorcolumn=80
-
+set virtualedit=block
+let g:tex_conceal = ""
 
 " Gui
 if has("gui_running")
